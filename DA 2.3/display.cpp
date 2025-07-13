@@ -57,26 +57,18 @@ void testRun()
 	handTest.setSize(2);
 	srand(time(0));
 
-	handTest.rollAllDice();
-	console.displayDice(handTest.getDice(), handTest.getSize());
-	cout << endl;
 
-	bool continueRolling = true;
-	int choice = console.getUserChoice("\n1. re-roll\n2. stay");
+	bool continueRolling =true;
+	while (continueRolling) 
+	{
+		handTest.rollAllDice();
+		console.displayDice(handTest.getDice(), handTest.getSize());
+		int choice = console.getUserChoice("\n1. re-roll\n2. stay");
 
-	while (continueRolling)
-		if (choice == 1) {
-			handTest.rollAllDice();
+		if (choice == 2) {
 			console.displayDice(handTest.getDice(), handTest.getSize());
-			int choice = console.getUserChoice("\n1. re-roll\n2. stay");
-		}
-
-		else if (choice == 2) {
-			cout << "thanks for playing !!!" << endl;
-			console.displayDice(handTest.getDice(), handTest.getSize());
+			cout << "thanks for playing !!! " << endl; 
 			continueRolling = false;
-
-
 		}
-
+	}
 }
